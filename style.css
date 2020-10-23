@@ -1,0 +1,86 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  min-height: 100vh;
+}
+
+body {
+  z-index: 0;
+  overflow-x: hidden;
+  position: relative;
+
+  background-image: url(img/background-cat-big.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* body {
+  background: url(./img/background-cat-small.jpg) center center cover no-repeat fixed;
+} */
+
+.menu {
+  position: relative;
+  margin: auto;
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
+.navbar {
+  min-height: 60px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-vertical-center {
+  align-items: center;
+}
+
+.flex-horizontal-right {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-nav {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-item {
+  padding: 1em;
+  cursor: pointer;
+}
+
+.popup-button {
+  width: 28px;
+  height: 28px;
+}
+
+@media screen and (min-width: 767px) {
+  body {
+    background-image: url(./img/background-cat-big.jpg);
+  }
+
+  .navbar-nav {
+    padding-right: 10%;
+  }
+}
