@@ -8,27 +8,51 @@
   <link rel="shortcut icon" href="./img/favicon.ico" />
   <title>Hooli-style Popup</title>
   <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="style2.css"> -->
 </head>
 
 <body>
   <section class="menu">
-    <nav class="navbar flex flex-vertical-center">
-      <div class="flex flex-horizontal-right collapse navbar-collapse">
-        <ul class="navbar-nav flex nav-dropdown flex-vertical-center">
-          <li class="nav-item">
-            My cat
+    <nav class="navbar">
+      <div class="flex flex-horizontal-right">
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a href="#" class="navbar__link popup-button">My cat</a>
+
+            <ul id="sub-navbar__list" class="sub-navbar__list">
+              <li class="sub-navbar__item">
+                <a href="#" class="sub-navbar__link">Sub cat 1</a>
+              </li>
+              <li class="sub-navbar__item">
+                <a href="#" class="sub-navbar__link">Sub cat 2</a>
+              </li>
+              <li class="sub-navbar__item">
+                <a href="#" class="sub-navbar__link">Sub cat 3</a>
+              </li>
+              <li class="sub-navbar__item">
+                <a href="#" class="sub-navbar__link">Sub cat 4</a>
+              </li>
+            </ul>
+
           </li>
-          <li class="nav-item">
-            Mail
+          <li class="navbar__item">
+            <a href="https://github.com/NJul/kottans-frontend" target="_blank"
+              class="navbar__link popup-button">Frontend</a>
           </li>
-          <li class="nav-item">
-            <img src="./img/popup-button.png" alt="Popup button" class="popup-button">
+          <li class="navbar__item">
+            <a href="#" class="navbar__link">
+              <img src="./img/popup-button.png" alt="Popup button" class="popup-button-img">
+            </a>
           </li>
-          <li class="nav-item">
-            <img src="./img/bell.png" alt="Bell" class="popup-button">
+          <li class="navbar__item">
+            <a href="#" class="navbar__link">
+              <img src="./img/bell.png" alt="Bell" class="popup-button-img">
+            </a>
           </li>
-          <li class="nav-item">
-            <img src="./img/kottans.png" alt="Kottans button" class="popup-button">
+          <li class="navbar__item">
+            <a href="https://github.com/kottans/mock-repo" class="navbar__link" target="_blank">
+              <img src="./img/kottans.png" alt="Kottans button" class="popup-button-img">
+            </a>
           </li>
         </ul>
       </div>
