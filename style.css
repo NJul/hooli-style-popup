@@ -8,14 +8,20 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: auto;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
-body {
-  z-index: 0;
+.background {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
   overflow-x: hidden;
-  position: relative;
 
   background-image: url(./img/background-cat-small.jpg);
   background-position: center center;
@@ -23,26 +29,19 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
-
-  font-family: 'Noto Sans JP', sans-serif;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-vertical-center {
-  align-items: center;
 }
 
 .flex-horizontal-right {
+  display: flex;
   width: 100%;
   justify-content: flex-end;
   align-items: center;
 }
 
 a {
+  text-decoration: none;
   border: 1px solid transparent;
+  transition: all .25s ease-in-out;
 }
 
 img {
@@ -51,19 +50,13 @@ img {
 
 /* Menu */
 
-.menu {
-  position: relative;
+.navbar {
+  width: 100%;
   margin: auto;
   background: rgb(255, 255, 255, 0.8);
   background: linear-gradient(-690deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255, 0.8) 80%);
-}
-
-.navbar {
   min-height: 60px;
-}
-
-.navbar a {
-  text-decoration: none;
+  position: relative;
 }
 
 /* For positioning sub menus */
@@ -82,22 +75,39 @@ img {
 }
 
 /* Apply only for the first level >li */
-.navbar__list>li {
+.navbar__list>li:not(:last-child) {
   margin: 0px 10px 0px 0px;
 }
 
+/* 
 .navbar__list>li:hover .sub-navbar__list {
   display: block;
-}
+} */
+
+/* .navbar__list>li:hover .sub-navbar__list--1 {
+  display: block;
+} */
 
 .navbar__item {
   display: flex;
   padding: 1em;
 }
 
+.menu-toggler {
+  display: flex;
+  align-items: center;
+  color: #747474;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all .25s ease-in-out;
+  background-color: #72b0eba1;
+}
+
+.menu-toggler:hover,
+.menu-toggler:focus,
 .navbar__item:hover>a,
-a:focus,
-a:hover {
+a:hover,
+a:focus {
   outline: none;
   background-color: rgba(93, 94, 95, 0.164);
   border: solid 1px #6098f3;
@@ -105,15 +115,21 @@ a:hover {
   color: black;
 }
 
+/* input[type="checkbox"]:focus~label {
+  outline: 1px solid #757575;
+} */
+
 .navbar__link {
   display: flex;
   align-items: center;
-  color: #747474;
+  color: black;
+  background-color: #72b0eba1;
   cursor: pointer;
 }
 
 .popup-button {
   padding: 5px 10px;
+  color: black;
 }
 
 .popup-button-img {
@@ -145,9 +161,225 @@ a:hover {
   padding: 5px 10px;
 }
 
+#my-cat-checkbox,
+#my-checkbox {
+  /* display: none; */
+  position: absolute;
+  /* so you can click on the :after */
+  opacity: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
 
+#my-cat-checkbox:checked~.sub-navbar__list--1 {
+  display: block;
+}
+
+#my-checkbox:checked~.sub-navbar__list--2-popup-button {
+  display: block;
+}
+
+
+/* popup */
+
+.submenu__item-hidden {
+  position: relative;
+}
+
+.menu__item-input:checked~.menu__submenu {
+  display: flex;
+}
+
+.menu__item-input:checked~.submenu__item-label {
+  display: flex;
+}
+
+.menu__item-input:checked+.menu__item-label::before {
+  opacity: 1;
+}
+
+.menu__item-label::before {
+  opacity: 0;
+  content: "";
+  z-index: 2;
+  position: absolute;
+  top: 60px;
+  right: 130px;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  transform: rotate(-45deg);
+}
+
+.menu__link-text {
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.menu__link-text:hover {
+  text-decoration: underline;
+  opacity: .75;
+}
+
+.submenu__link:hover .menu__link-text {
+  text-decoration: underline;
+  opacity: .75;
+}
+
+.menu__link-user:hover {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+}
+
+.menu__submenu {
+  display: none;
+  z-index: 1;
+  width: 320px;
+  max-height: 500px;
+  position: absolute;
+  top: 85px;
+  left: -130px;
+  border: 1px solid #ccc;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow-x: hidden;
+  padding: .5rem .5rem 1.6rem .5rem;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
+  background-color: #ffffffa3;
+}
+
+.submenu__item {
+  width: 100px;
+  display: flex;
+  /* align-items: flex-end; */
+  margin-bottom: 1rem;
+}
+
+.submenu__link {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.submenu__link img {
+  width: 75%;
+}
+
+.submenu__link:hover {
+  border: 1px solid #ccc;
+}
+
+.menu__submenu [type="checkbox"] {
+  display: none;
+}
+
+.menu__submenu::-webkit-scrollbar {
+  width: .15rem;
+}
+
+.menu__submenu::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.menu__submenu::-webkit-scrollbar-thumb {
+  background-color: rgb(182, 180, 180);
+  border: 1px solid rgb(58, 64, 70);
+}
+
+.submenu__item-label {
+  position: absolute;
+  width: 100%;
+  /* bottom: 0;
+  left: 0; */
+  background: #f1f1f1;
+  cursor: pointer;
+  padding: .4rem 0;
+  text-align: center;
+}
+
+.submenu__extramenu {
+  display: none;
+  flex-wrap: wrap;
+  overflow: auto;
+  margin-top: 3rem;
+  z-index: 1;
+}
+
+.submenu__item-input:checked~.submenu__extramenu {
+  display: flex;
+}
+
+.submenu__item-input:checked~.submenu__item-label {
+  display: none;
+}
+
+.submenu__item-input:checked .menu__submenu {
+  overflow: auto;
+}
+
+.submenu__extramenu::before {
+  z-index: 1;
+  content: '';
+  width: 100%;
+  position: absolute;
+  top: 490px;
+  left: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.extramenu__item {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.extramenu__link {
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.extramenu__link:hover {
+  border: 1px solid #ccc;
+}
+
+.extramenu__link img {
+  width: 75%;
+}
+
+.extramenu__item-link {
+  text-align: center;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.extramenu__extralink {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid transparent;
+  padding: .5rem;
+}
+
+.extramenu__extralink:hover {
+  text-decoration: underline;
+  opacity: .75;
+}
+
+
+/* Media queries */
 @media screen and (min-width: 767px) {
-  body {
+  .background {
     background-image: url(./img/background-cat-big.jpg);
   }
 
@@ -155,7 +387,20 @@ a:hover {
     padding-right: 10%;
   }
 
+  .navbar__link {
+    color: #747474;
+    background-color: transparent;
+  }
+
   .sub-navbar__item {
     background-color: rgba(113, 152, 190, 0.253);
+  }
+
+  .popup-button {
+    color: #747474;
+  }
+
+  .menu-toggler {
+    background-color: transparent;
   }
 }
