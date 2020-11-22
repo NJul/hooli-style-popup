@@ -18,11 +18,12 @@
         <ul class="navbar__list">
           <li class="navbar__item">
 
-
-            <label for="my-cat-checkbox" class="menu-toggler" tabindex="0">
+            <input type="checkbox" id="my-cat-checkbox">
+            <!--del label tabindex attribute-->
+            <label for="my-cat-checkbox" class="menu-toggler">
               <span class="popup-button">My cat</span>
             </label>
-            <input type="checkbox" id="my-cat-checkbox">
+            
 
             <ul id="sub-navbar__list--1" class="sub-navbar__list sub-navbar__list--1">
               <li class="sub-navbar__item">
@@ -48,12 +49,13 @@
 
           <li class="navbar__item">
 
-            <label for="my-checkbox" class="menu-toggler" tabindex="0">
+            <!--put <input> upper than <label></label>
+                del label tabindex attribute-->
+            <input type="checkbox" id="my-checkbox" class="menu__item-input">
+            <label for="my-checkbox" class="menu-toggler">
               <img src="./img/popup-button.png" alt="Popup button" class="popup-button-img popup-button-img--checkbox">
             </label>
-            <input type="checkbox" id="my-checkbox" class="menu__item-input">
-
-
+            
             <!-- <div class="sub-menu-wrapper">
               <div class="sub-menu-inner"> -->
 
@@ -155,15 +157,14 @@
                       Weary cat
                     </a>
                   </li>
+                </li>
+                <li class="extramenu__item-link">
+                  <a href="https://kottans.org/" class="extramenu__extralink" target="_blank">
+                  even more from Kottans
+                  </a>
+                </li>
+              </ul>
 
-
-                  <li class="extramenu__item-link">
-                    <a href="https://kottans.org/" class="extramenu__extralink" target="_blank">
-                      even more from Kottans
-                    </a>
-                  </li>
-                </ul>
-              </li>
             </ul>
 
             <!-- </div> -->
@@ -181,7 +182,7 @@
             </a>
           </li>
         </ul>
-
+        
       </nav>
     </header>
   </section>

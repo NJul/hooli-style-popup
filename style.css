@@ -102,22 +102,21 @@ img {
   transition: all .25s ease-in-out;
   background-color: #72b0eba1;
 }
-
+/* add some selectors here*/
 .menu-toggler:hover,
 .menu-toggler:focus,
 .navbar__item:hover>a,
 a:hover,
-a:focus {
+a:focus,
+input[type="checkbox"]:focus~label,
+.submenu__input:focus~.submenu__item-label,
+.submenu__item-label:hover {
   outline: none;
   background-color: rgba(93, 94, 95, 0.164);
   border: solid 1px #6098f3;
   box-shadow: 0px 5px 10px #6098f3;
   color: black;
 }
-
-/* input[type="checkbox"]:focus~label {
-  outline: 1px solid #757575;
-} */
 
 .navbar__link {
   display: flex;
@@ -184,8 +183,14 @@ a:focus {
 
 /* popup */
 
+/* add   display: block; height: 100%; width: 100%;
+    to .submenu__item-hidden */
+ 
 .submenu__item-hidden {
   position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .menu__item-input:checked~.menu__submenu {
@@ -251,7 +256,8 @@ a:focus {
   background-color: #ffffffa3;
 }
 
-.submenu__item {
+/* add .extramenu__item here*/
+.submenu__item, .extramenu__item  {
   width: 100px;
   display: flex;
   /* align-items: flex-end; */
@@ -274,9 +280,9 @@ a:focus {
 .submenu__link:hover {
   border: 1px solid #ccc;
 }
-
+/* put appearance:none; instead of display:none; */
 .menu__submenu [type="checkbox"] {
-  display: none;
+  appearance: none;
 }
 
 .menu__submenu::-webkit-scrollbar {
@@ -293,7 +299,7 @@ a:focus {
 }
 
 .submenu__item-label {
-  position: absolute;
+  display: block;
   width: 100%;
   /* bottom: 0;
   left: 0; */
@@ -303,16 +309,22 @@ a:focus {
   text-align: center;
 }
 
+/* add justify-content: space-between; padding-left: 0px; */
 .submenu__extramenu {
   display: none;
   flex-wrap: wrap;
   overflow: auto;
   margin-top: 3rem;
   z-index: 1;
+  justify-content: space-between;
+  padding-left: 0px;
 }
-
+.submenu__item-input {
+  display: block;
+}
 .submenu__item-input:checked~.submenu__extramenu {
   display: flex;
+
 }
 
 .submenu__item-input:checked~.submenu__item-label {
@@ -323,22 +335,14 @@ a:focus {
   overflow: auto;
 }
 
+/* changed top value to 15px*/
 .submenu__extramenu::before {
   z-index: 1;
   content: '';
   width: 100%;
   position: absolute;
-  top: 490px;
-  left: 0;
+  top: 15px;
   border-bottom: 1px solid #ccc;
-}
-
-.extramenu__item {
-  height: 100px;
-  width: 100px;
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 1rem;
 }
 
 .extramenu__link {
@@ -365,7 +369,8 @@ a:focus {
 }
 
 .extramenu__extralink {
-  display: inline-block;
+  display: block;
+  position: relative;
   text-decoration: none;
   border: 1px solid transparent;
   padding: .5rem;
