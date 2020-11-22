@@ -93,6 +93,14 @@ img {
   padding: 1em;
 }
 
+.navbar__item--popup {
+  order: -1;
+}
+
+.navbar__item--my-cat {
+  order: -2;
+}
+
 .menu-toggler {
   display: flex;
   align-items: center;
@@ -102,6 +110,7 @@ img {
   transition: all .25s ease-in-out;
   background-color: #72b0eba1;
 }
+
 /* add some selectors here*/
 .menu-toggler:hover,
 .menu-toggler:focus,
@@ -185,7 +194,7 @@ input[type="checkbox"]:focus~label,
 
 /* add   display: block; height: 100%; width: 100%;
     to .submenu__item-hidden */
- 
+
 .submenu__item-hidden {
   position: relative;
   display: block;
@@ -242,14 +251,15 @@ input[type="checkbox"]:focus~label,
 .menu__submenu {
   display: none;
   z-index: 1;
-  width: 320px;
+  /* width: 320px; */
   max-height: 500px;
   position: absolute;
   top: 85px;
-  left: -130px;
+  /* left: -130px; */
   border: 1px solid #ccc;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  /* justify-content: space-between; */
   overflow-x: hidden;
   padding: .5rem .5rem 1.6rem .5rem;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
@@ -257,7 +267,8 @@ input[type="checkbox"]:focus~label,
 }
 
 /* add .extramenu__item here*/
-.submenu__item, .extramenu__item  {
+.submenu__item,
+.extramenu__item {
   width: 100px;
   display: flex;
   /* align-items: flex-end; */
@@ -280,6 +291,7 @@ input[type="checkbox"]:focus~label,
 .submenu__link:hover {
   border: 1px solid #ccc;
 }
+
 /* put appearance:none; instead of display:none; */
 .menu__submenu [type="checkbox"] {
   appearance: none;
@@ -319,9 +331,11 @@ input[type="checkbox"]:focus~label,
   justify-content: space-between;
   padding-left: 0px;
 }
+
 .submenu__item-input {
   display: block;
 }
+
 .submenu__item-input:checked~.submenu__extramenu {
   display: flex;
 
@@ -383,9 +397,24 @@ input[type="checkbox"]:focus~label,
 
 
 /* Media queries */
+
+@media screen and (min-width: 300px) and (max-width: 479px) {
+  .menu__submenu {
+    top: 150px;
+  }
+}
+
 @media screen and (min-width: 767px) {
   .background {
     background-image: url(./img/background-cat-big.jpg);
+  }
+
+  .navbar__item--popup {
+    order: 0;
+  }
+
+  .navbar__item--my-cat {
+    order: 0;
   }
 
   .navbar__list {
@@ -407,5 +436,22 @@ input[type="checkbox"]:focus~label,
 
   .menu-toggler {
     background-color: transparent;
+  }
+
+  .menu__submenu {
+    display: none;
+    z-index: 1;
+    width: 320px;
+    max-height: 500px;
+    position: absolute;
+    top: 85px;
+    left: -130px;
+    border: 1px solid #ccc;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow-x: hidden;
+    padding: .5rem .5rem 1.6rem .5rem;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .3);
+    background-color: #ffffffa3;
   }
 }

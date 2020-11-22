@@ -16,14 +16,14 @@
       <nav class="navbar flex-horizontal-right">
 
         <ul class="navbar__list">
-          <li class="navbar__item">
+          <li class="navbar__item navbar__item--my-cat">
 
             <input type="checkbox" id="my-cat-checkbox">
             <!--del label tabindex attribute-->
             <label for="my-cat-checkbox" class="menu-toggler">
               <span class="popup-button">My cat</span>
             </label>
-            
+
 
             <ul id="sub-navbar__list--1" class="sub-navbar__list sub-navbar__list--1">
               <li class="sub-navbar__item">
@@ -47,7 +47,7 @@
               class="navbar__link popup-button">Frontend</a>
           </li>
 
-          <li class="navbar__item">
+          <li class="navbar__item navbar__item--popup">
 
             <!--put <input> upper than <label></label>
                 del label tabindex attribute-->
@@ -55,9 +55,6 @@
             <label for="my-checkbox" class="menu-toggler">
               <img src="./img/popup-button.png" alt="Popup button" class="popup-button-img popup-button-img--checkbox">
             </label>
-            
-            <!-- <div class="sub-menu-wrapper">
-              <div class="sub-menu-inner"> -->
 
             <ul class="menu__submenu">
               <li class="submenu__item">
@@ -73,9 +70,9 @@
                 </a>
               </li>
               <li class="submenu__item">
-                <a class="submenu__link" href="#">
-                  <img src="./img/popup-icons/cat-3.png" alt="Cat-3">
-                  Cat-3
+                <a class="submenu__link" href="https://github.com/eve5ince" target="_blank">
+                  <img src="./img/popup-icons/cat-3.png" alt="eve5ince">
+                  <span class="menu__link-text">eve5ince</span>
                 </a>
               </li>
               <li class="submenu__item">
@@ -157,32 +154,28 @@
                       Weary cat
                     </a>
                   </li>
-                </li>
-                <li class="extramenu__item-link">
-                  <a href="https://kottans.org/" class="extramenu__extralink" target="_blank">
+              </li>
+              <li class="extramenu__item-link">
+                <a href="https://kottans.org/" class="extramenu__extralink" target="_blank">
                   even more from Kottans
-                  </a>
-                </li>
-              </ul>
-
+                </a>
+              </li>
             </ul>
-
-            <!-- </div> -->
-            <!--</div> -->
-          </li>
-
-          <li class="navbar__item">
-            <a href="#" class="navbar__link">
-              <img src="./img/bell.png" alt="Bell" class="popup-button-img">
-            </a>
-          </li>
-          <li class="navbar__item">
-            <a href="https://github.com/kottans/mock-repo" class="navbar__link" target="_blank">
-              <img src="./img/kottans.png" alt="Kottans button" class="popup-button-img">
-            </a>
-          </li>
         </ul>
-        
+        </li>
+
+        <li class="navbar__item">
+          <a href="#" class="navbar__link">
+            <img src="./img/bell.png" alt="Bell" class="popup-button-img">
+          </a>
+        </li>
+        <li class="navbar__item">
+          <a href="https://github.com/kottans/mock-repo" class="navbar__link" target="_blank">
+            <img src="./img/kottans.png" alt="Kottans button" class="popup-button-img">
+          </a>
+        </li>
+        </ul>
+
       </nav>
     </header>
   </section>
